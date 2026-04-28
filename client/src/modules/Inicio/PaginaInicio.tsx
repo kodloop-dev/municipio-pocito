@@ -30,7 +30,16 @@ const ESTADO_CONFIG = {
 }
 
 function formatearFecha(iso: string) {
-  return new Date(iso).toLocaleDateString('es-AR', { day: '2-digit', month: 'short' })
+  const fecha = new Date(iso)
+  const ahora = new Date()
+  const hora = fecha.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })
+  const diff = ahora.getTime() - fecha.getTime()
+  const horas = Math.floor(diff / 3600000)
+  if (horas < 1) return `Hace un momento · ${hora}`
+  if (horas < 24) return `Hoy ${hora}`
+  const dias = Math.floor(horas / 24)
+  if (dias === 1) return `Ayer ${hora}`
+  return `${fecha.toLocaleDateString('es-AR', { day: '2-digit', month: 'short' })} · ${hora}`
 }
 
 export default function PaginaInicio() {

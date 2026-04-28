@@ -36,6 +36,7 @@ export interface Reporte {
   coordenadas: Coordenadas | null
   estado: 'pendiente' | 'en_revision' | 'resuelto'
   fecha: string
+  foto?: string
 }
 
 export interface AccionesApp {

@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState, useEffect } from 'react'
-import { toast } from 'sonner'
+import { useState, useEffect, useCallback } from 'react'
+import { CircleCheck, XCircle, X } from 'lucide-react'
 import { useMisDatos } from './useMisDatos'
 import { SelectorMapa } from './SelectorMapa'
 import { Input } from '../../components/ui/input'
@@ -48,9 +48,50 @@ function SeccionCard({ titulo, children }: { titulo: string; children: ReactNode
   )
 }
 
+type Aviso = { tipo: 'exito' | 'error'; mensaje: string } | null
+
+function AvisoFlotante({ aviso, alCerrar }: { aviso: NonNullable<Aviso>; alCerrar: () => void }) {
+  const esExito = aviso.tipo === 'exito'
+  return (
+    <div
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-md animate-in slide-in-from-top-4 fade-in duration-300"
+    >
+      <div
+        className="flex items-center gap-3 px-4 py-3.5 rounded-2xl border backdrop-blur-sm"
+        style={{
+          background: esExito
+            ? 'linear-gradient(135deg, rgba(22,163,74,0.95) 0%, rgba(34,197,94,0.92) 100%)'
+            : 'linear-gradient(135deg, rgba(220,38,38,0.95) 0%, rgba(239,68,68,0.92) 100%)',
+          borderColor: esExito ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.2)',
+          boxShadow: esExito
+            ? '0 8px 32px rgba(22,163,74,0.35), 0 2px 8px rgba(0,0,0,0.1)'
+            : '0 8px 32px rgba(220,38,38,0.35), 0 2px 8px rgba(0,0,0,0.1)',
+        }}
+      >
+        <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: 'rgba(255,255,255,0.2)' }}>
+          {esExito
+            ? <CircleCheck size={20} className="text-white" />
+            : <XCircle size={20} className="text-white" />
+          }
+        </div>
+        <p className="text-[14px] font-semibold text-white flex-1">{aviso.mensaje}</p>
+        <button onClick={alCerrar} className="text-white/70 hover:text-white transition-colors shrink-0">
+          <X size={18} />
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function PaginaMisDatos() {
   const { usuario, guardar } = useMisDatos()
   const [coordenadas, setCoordenadas] = useState<Coordenadas | null>(usuario?.coordenadas ?? null)
+  const [aviso, setAviso] = useState<Aviso>(null)
+
+  const mostrarAviso = useCallback((tipo: 'exito' | 'error', mensaje: string) => {
+    setAviso({ tipo, mensaje })
+    setTimeout(() => setAviso(null), 3500)
+  }, [])
 
   const formulario = useForm<Datos>({
     resolver: zodResolver(esquema),
@@ -90,14 +131,15 @@ export default function PaginaMisDatos() {
     }
     try {
       await guardar({ ...datos, cantidadPersonas: cantidad, coordenadas })
-      toast.success('Datos guardados correctamente')
+      mostrarAviso('exito', 'Datos guardados correctamente')
     } catch {
-      toast.error('No se pudieron guardar los datos')
+      mostrarAviso('error', 'No se pudieron guardar los datos')
     }
   }
 
   return (
     <div className="flex flex-col gap-4">
+      {aviso && <AvisoFlotante aviso={aviso} alCerrar={() => setAviso(null)} />}
       <div>
         <h1 className="text-[22px] font-black text-[#1A1A2E] leading-tight">Mis Datos</h1>
         <p className="text-[13px] text-gray-400 mt-0.5">Perfil y datos del hogar</p>
