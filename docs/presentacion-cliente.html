@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pocito App Vecinal - Presentacion Demo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --azul: #0077C8;
+      --azul-claro: #27A9E1;
+      --azul-oscuro: #003f87;
+      --amarillo: #F5A623;
+      --fondo: #F4F6FB;
+      --texto: #1A1A2E;
+      --gris: #6B7280;
+      --gris-claro: #E5E7EB;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fff;
+      color: var(--texto);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* --- PAGINAS --- */
+    .pagina {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 14mm 16mm;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pagina:last-child {
+      page-break-after: avoid;
+    }
+
+    /* --- PORTADA --- */
+    .portada {
+      background: linear-gradient(155deg, var(--azul-oscuro) 0%, var(--azul) 55%, var(--azul-claro) 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+      padding: 20mm 18mm;
+    }
+
+    .portada-orbe1 {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .portada-orbe2 {
+      position: absolute;
+      bottom: 40px;
+      right: 30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .portada-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 4px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+
+    .portada-municipio {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.75;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .portada-titulo {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
+    }
+
+    .portada-subtitulo {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .portada-linea {
+      width: 50px;
+      height: 3px;
+      background: var(--amarillo);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .portada-descripcion {
+      font-size: 15px;
+      opacity: 0.85;
+      max-width: 340px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    .portada-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      width: 100%;
+    }
+
+    .portada-footer-texto {
+      font-size: 12px;
+      opacity: 0.65;
+    }
+
+    .portada-footer-dot {
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+    }
+
+    /* --- ENCABEZADO PAGINAS INTERNAS --- */
+    .encabezado-pagina {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--azul);
+      margin-bottom: 24px;
+    }
+
+    .encabezado-pagina-nombre {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--azul);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .encabezado-pagina-num {
+      font-size: 11px;
+      color: var(--gris);
+    }
+
+    /* --- TITULOS --- */
+    .titulo-seccion {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--texto);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .subtitulo-seccion {
+      font-size: 14px;
+      color: var(--gris);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* --- CARDS --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--fondo);
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--gris-claro);
+    }
+
+    .card-azul {
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+      color: white;
+      border: none;
+    }
+
+    .card-azul .card-label {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gris);
+      margin-bottom: 6px;
+    }
+
+    .card-titulo {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card-texto {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--gris);
+    }
+
+    .card-azul .card-texto {
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* --- ICONO CUADRADO --- */
+    .icono-caja {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .icono-azul { background: rgba(0, 119, 200, 0.1); }
+    .icono-rojo { background: rgba(220, 38, 38, 0.1); }
+    .icono-verde { background: rgba(22, 163, 74, 0.1); }
+    .icono-naranja { background: rgba(245, 166, 35, 0.12); }
+    .icono-violeta { background: rgba(124, 58, 237, 0.1); }
+
+    /* --- LISTA CON ICONOS --- */
+    .lista-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gris-claro);
+    }
+
+    .lista-item:last-child {
+      border-bottom: none;
+    }
+
+    .lista-punto {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .lista-contenido-titulo {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .lista-contenido-texto {
+      font-size: 13px;
+      color: var(--gris);
+      line-height: 1.45;
+    }
+
+    /* --- BADGE --- */
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-azul { background: rgba(0, 119, 200, 0.1); color: var(--azul); }
+    .badge-amarillo { background: rgba(245, 166, 35, 0.12); color: #B45309; }
+    .badge-verde { background: rgba(22, 163, 74, 0.1); color: #166534; }
+    .badge-rojo { background: rgba(220, 38, 38, 0.1); color: #991B1B; }
+
+    /* --- TABLA --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 12px;
+      background: var(--fondo);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gris);
+      border-bottom: 2px solid var(--gris-claro);
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--gris-claro);
+      color: var(--texto);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* --- DESTAQUE --- */
+    .destaque {
+      background: linear-gradient(135deg, rgba(0,119,200,0.06), rgba(39,169,225,0.06));
+      border: 1px solid rgba(0,119,200,0.15);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+
+    .destaque-titulo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 6px;
+    }
+
+    .destaque-texto {
+      font-size: 13px;
+      color: #374151;
+      line-height: 1.55;
+    }
+
+    /* --- LINEA TIEMPO --- */
+    .linea-tiempo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .lt-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .lt-eje {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .lt-circulo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .lt-linea {
+      width: 2px;
+      height: 28px;
+      background: var(--gris-claro);
+    }
+
+    .lt-contenido {
+      padding-bottom: 20px;
+      flex: 1;
+    }
+
+    .lt-titulo {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      padding-top: 6px;
+    }
+
+    .lt-texto {
+      font-size: 13px;
+      color: var(--gris);
+      line-height: 1.45;
+    }
+
+    /* --- FOOTER PAGINA --- */
+    .footer-pagina {
+      position: absolute;
+      bottom: 12mm;
+      left: 16mm;
+      right: 16mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--gris);
+      border-top: 1px solid var(--gris-claro);
+      padding-top: 8px;
+    }
+
+    /* --- CIERRE --- */
+    .pagina-cierre {
+      background: linear-gradient(155deg, var(--azul-oscuro) 0%, var(--azul) 60%, var(--azul-claro) 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cierre-titulo {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .cierre-texto {
+      font-size: 15px;
+      opacity: 0.8;
+      max-width: 320px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .cierre-contacto {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 20px 32px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .cierre-contacto strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .tag-demo {
+      background: var(--amarillo);
+      color: #7c3d00;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* --- PRINT --- */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .pagina { margin: 0; box-shadow: none; }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGINA 1 - PORTADA                                           -->
+<!-- ============================================================ -->
+<div class="pagina portada">
+  <div class="portada-orbe1"></div>
+  <div class="portada-orbe2"></div>
+
+  <span class="portada-badge">Demo</span>
+
+  <div class="portada-municipio">Municipio de Pocito &mdash; San Juan, Argentina</div>
+  <div class="portada-titulo">Pocito<br>App Vecinal</div>
+  <div class="portada-subtitulo">Plataforma digital municipal para residentes</div>
+  <div class="portada-linea"></div>
+
+  <p class="portada-descripcion">
+    Una aplicacion movil moderna que conecta a los vecinos con el municipio
+    de forma directa, segura y accesible desde cualquier dispositivo.
+  </p>
+
+  <div class="portada-footer">
+    <span class="portada-footer-texto">Presentacion de Demo</span>
+    <div class="portada-footer-dot"></div>
+    <span class="portada-footer-texto">Abril 2026</span>
+    <div class="portada-footer-dot"></div>
+    <span class="portada-footer-texto">Confidencial</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 2 - PROPUESTA DE VALOR                                -->
+<!-- ============================================================ -->
+<div class="pagina">
+  <div class="encabezado-pagina">
+    <span class="encabezado-pagina-nombre">Pocito App Vecinal</span>
+    <span class="encabezado-pagina-num">02 / 07</span>
+  </div>
+
+  <div class="titulo-seccion">El problema que resolvemos</div>
+  <p class="subtitulo-seccion">
+    Los vecinos de Pocito no tienen un canal digital directo con el municipio.
+    Reportar un problema, pedir asistencia o recibir avisos oficiales requiere
+    llamadas, desplazamientos o depender de terceros.
+  </p>
+
+  <div class="grid-2" style="margin-bottom:24px;">
+    <div class="card">
+      <div class="icono-caja icono-rojo">&#9888;</div>
+      <div class="card-titulo">Situation actual</div>
+      <div class="card-texto">Sin un canal digital unificado, los vecinos deben llamar por telefono, acercarse a oficinas o depender de redes sociales para comunicarse con el municipio.</div>
+    </div>
+    <div class="card card-azul">
+      <div class="icono-caja" style="background:rgba(255,255,255,0.15);">&#10003;</div>
+      <div class="card-titulo">Nuestra solucion</div>
+      <div class="card-texto">Una app instalable en el celular que centraliza reportes, alertas de emergencia, notificaciones oficiales y datos del vecino en un solo lugar.</div>
+    </div>
+  </div>
+
+  <div class="titulo-seccion" style="font-size:20px; margin-bottom:14px;">Beneficios para el Municipio</div>
+
+  <div class="lista-item">
+    <div class="lista-punto">1</div>
+    <div>
+      <div class="lista-contenido-titulo">Canal directo con los vecinos</div>
+      <div class="lista-contenido-texto">Comunicacion oficial sin intermediarios. Las notificaciones llegan directamente al dispositivo del residente.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto">2</div>
+    <div>
+      <div class="lista-contenido-titulo">Gestion de reportes ciudadanos</div>
+      <div class="lista-contenido-texto">Los vecinos reportan problemas urbanos con ubicacion exacta. El municipio puede priorizar y gestionar cada caso con trazabilidad.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto">3</div>
+    <div>
+      <div class="lista-contenido-titulo">Respuesta rapida ante emergencias</div>
+      <div class="lista-contenido-texto">El boton de panico envia la ubicacion del vecino al municipio de forma inmediata, acelerando la respuesta en situaciones criticas.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto">4</div>
+    <div>
+      <div class="lista-contenido-titulo">Datos del territorio actualizados</div>
+      <div class="lista-contenido-texto">Cada vecino registrado aporta informacion de su hogar y ubicacion, construyendo un mapa de datos municipal valioso.</div>
+    </div>
+  </div>
+
+  <div class="footer-pagina">
+    <span>Municipio de Pocito &mdash; App Vecinal</span>
+    <span>Demo &mdash; Abril 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 3 - FUNCIONALIDADES                                   -->
+<!-- ============================================================ -->
+<div class="pagina">
+  <div class="encabezado-pagina">
+    <span class="encabezado-pagina-nombre">Pocito App Vecinal</span>
+    <span class="encabezado-pagina-num">03 / 07</span>
+  </div>
+
+  <div class="titulo-seccion">Funcionalidades de la App</div>
+  <p class="subtitulo-seccion">Seis modulos integrados, disenados para el uso cotidiano del vecino.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="icono-caja icono-azul">&#128100;</div>
+      <div class="card-label">Modulo 1</div>
+      <div class="card-titulo">Registro e inicio de sesion</div>
+      <div class="card-texto">El vecino crea su cuenta con DNI, datos personales y domicilio. Acceso seguro con credenciales propias.</div>
+    </div>
+
+    <div class="card">
+      <div class="icono-caja icono-azul">&#127968;</div>
+      <div class="card-label">Modulo 2</div>
+      <div class="card-titulo">Panel de inicio</div>
+      <div class="card-texto">Vista resumen con estado de la cuenta, ultimo reporte enviado y ultima alerta municipal recibida.</div>
+    </div>
+
+    <div class="card">
+      <div class="icono-caja icono-azul">&#128205;</div>
+      <div class="card-label">Modulo 3</div>
+      <div class="card-titulo">Mis Datos y Ubicacion</div>
+      <div class="card-texto">El vecino completa su perfil y marca su domicilio exacto en un mapa interactivo con un toque.</div>
+    </div>
+
+    <div class="card">
+      <div class="icono-caja icono-rojo">&#128680;</div>
+      <div class="card-label">Modulo 4</div>
+      <div class="card-titulo">Boton de Panico (SOS)</div>
+      <div class="card-texto">En caso de emergencia, el vecino presiona un boton y su ubicacion es enviada al municipio de inmediato.</div>
+    </div>
+
+    <div class="card">
+      <div class="icono-caja icono-naranja">&#128310;</div>
+      <div class="card-label">Modulo 5</div>
+      <div class="card-titulo">Reportes ciudadanos</div>
+      <div class="card-texto">El vecino reporta problemas urbanos (baches, luminarias, basura, arboles, vandalismo) con categoria y descripcion.</div>
+    </div>
+
+    <div class="card">
+      <div class="icono-caja icono-azul">&#128276;</div>
+      <div class="card-label">Modulo 6</div>
+      <div class="card-titulo">Notificaciones oficiales</div>
+      <div class="card-texto">El municipio puede enviar avisos que llegan directamente al dispositivo del vecino. Con indicador de no leidas.</div>
+    </div>
+  </div>
+
+  <div class="footer-pagina">
+    <span>Municipio de Pocito &mdash; App Vecinal</span>
+    <span>Demo &mdash; Abril 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 4 - CAPTURAS / FLUJO                                  -->
+<!-- ============================================================ -->
+<div class="pagina">
+  <div class="encabezado-pagina">
+    <span class="encabezado-pagina-nombre">Pocito App Vecinal</span>
+    <span class="encabezado-pagina-num">04 / 07</span>
+  </div>
+
+  <div class="titulo-seccion">Como lo usa el vecino</div>
+  <p class="subtitulo-seccion">Flujo completo en 4 pasos. Sin capacitacion previa necesaria.</p>
+
+  <div class="linea-tiempo">
+    <div class="lt-item">
+      <div class="lt-eje">
+        <div class="lt-circulo">1</div>
+        <div class="lt-linea"></div>
+      </div>
+      <div class="lt-contenido">
+        <div class="lt-titulo">Se registra en segundos</div>
+        <div class="lt-texto">Ingresa su DNI, nombre, domicilio y una contraseña. Solo la primera vez. En el proximo ingreso, solo DNI y contrasena.</div>
+      </div>
+    </div>
+    <div class="lt-item">
+      <div class="lt-eje">
+        <div class="lt-circulo">2</div>
+        <div class="lt-linea"></div>
+      </div>
+      <div class="lt-contenido">
+        <div class="lt-titulo">Configura su perfil y ubicacion</div>
+        <div class="lt-texto">En "Mis Datos" completa informacion del hogar y toca el mapa para marcar donde vive. Esta ubicacion se usa automaticamente en reportes y emergencias.</div>
+      </div>
+    </div>
+    <div class="lt-item">
+      <div class="lt-eje">
+        <div class="lt-circulo">3</div>
+        <div class="lt-linea"></div>
+      </div>
+      <div class="lt-contenido">
+        <div class="lt-titulo">Reporta problemas o activa SOS</div>
+        <div class="lt-texto">Desde la barra inferior accede a Reportes para informar un problema urbano, o al boton SOS elevado para emergencias reales.</div>
+      </div>
+    </div>
+    <div class="lt-item">
+      <div class="lt-eje">
+        <div class="lt-circulo">4</div>
+      </div>
+      <div class="lt-contenido">
+        <div class="lt-titulo">Recibe notificaciones del municipio</div>
+        <div class="lt-texto">El municipio puede enviar comunicados oficiales que aparecen con un badge de alerta. El vecino los lee cuando quiera, con historial disponible.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="destaque" style="margin-top: 20px;">
+    <div class="destaque-titulo">Instalacion sin App Store</div>
+    <div class="destaque-texto">
+      Al acceder desde el navegador del celular, el vecino puede agregar la app a la pantalla de inicio con un toque. No requiere cuenta de Google Play ni App Store. Funciona como una app nativa.
+    </div>
+  </div>
+
+  <div class="footer-pagina">
+    <span>Municipio de Pocito &mdash; App Vecinal</span>
+    <span>Demo &mdash; Abril 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 5 - TECNOLOGIA                                        -->
+<!-- ============================================================ -->
+<div class="pagina">
+  <div class="encabezado-pagina">
+    <span class="encabezado-pagina-nombre">Pocito App Vecinal</span>
+    <span class="encabezado-pagina-num">05 / 07</span>
+  </div>
+
+  <div class="titulo-seccion">Tecnologia moderna y escalable</div>
+  <p class="subtitulo-seccion">Construida con las herramientas mas actuales del mercado, pensada para crecer junto al municipio.</p>
+
+  <div class="grid-3">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px; margin-bottom:8px;">&#128241;</div>
+      <div class="card-titulo" style="font-size:14px;">PWA</div>
+      <div class="card-texto" style="font-size:12px;">Funciona en cualquier celular sin instalacion desde tiendas. Se actualiza sola.</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px; margin-bottom:8px;">&#127757;</div>
+      <div class="card-titulo" style="font-size:14px;">Mapas integrados</div>
+      <div class="card-texto" style="font-size:12px;">Leaflet con OpenStreetMap. Ubicacion precisa sin costo por mapa.</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px; margin-bottom:8px;">&#128274;</div>
+      <div class="card-titulo" style="font-size:14px;">Acceso seguro</div>
+      <div class="card-texto" style="font-size:12px;">Autenticacion por DNI. Preparada para integracion con backend y JWT.</div>
+    </div>
+  </div>
+
+  <div class="titulo-seccion" style="font-size:18px; margin-bottom:14px;">Estado actual de la demo</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Funcionalidad</th>
+        <th>Estado en Demo</th>
+        <th>En Produccion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Registro y login de vecinos</td>
+        <td><span class="badge badge-verde">Implementado</span></td>
+        <td>Conectado a base de datos del municipio</td>
+      </tr>
+      <tr>
+        <td>Perfil con mapa de ubicacion</td>
+        <td><span class="badge badge-verde">Implementado</span></td>
+        <td>Guardado en servidor seguro</td>
+      </tr>
+      <tr>
+        <td>Boton de panico SOS</td>
+        <td><span class="badge badge-verde">Implementado</span></td>
+        <td>Alerta en tiempo real al sistema de emergencias</td>
+      </tr>
+      <tr>
+        <td>Reportes ciudadanos</td>
+        <td><span class="badge badge-verde">Implementado</span></td>
+        <td>Panel de gestion para operadores municipales</td>
+      </tr>
+      <tr>
+        <td>Notificaciones</td>
+        <td><span class="badge badge-verde">Implementado</span></td>
+        <td>Push notifications desde el municipio</td>
+      </tr>
+      <tr>
+        <td>Backend y base de datos</td>
+        <td><span class="badge badge-amarillo">En desarrollo</span></td>
+        <td>API REST + PostgreSQL en servidor municipal</td>
+      </tr>
+      <tr>
+        <td>Panel de administracion</td>
+        <td><span class="badge badge-rojo">Pendiente</span></td>
+        <td>Gestion de reportes, notificaciones y vecinos</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-pagina">
+    <span>Municipio de Pocito &mdash; App Vecinal</span>
+    <span>Demo &mdash; Abril 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 6 - HOJA DE RUTA                                     -->
+<!-- ============================================================ -->
+<div class="pagina">
+  <div class="encabezado-pagina">
+    <span class="encabezado-pagina-nombre">Pocito App Vecinal</span>
+    <span class="encabezado-pagina-num">06 / 07</span>
+  </div>
+
+  <div class="titulo-seccion">Hoja de ruta a produccion</div>
+  <p class="subtitulo-seccion">Tres etapas claras desde la demo hasta el lanzamiento oficial al vecindario.</p>
+
+  <div class="grid-3" style="margin-bottom: 24px;">
+    <div class="card card-azul">
+      <div class="card-label" style="color:rgba(255,255,255,0.6); margin-bottom:4px;">Etapa 1</div>
+      <div class="card-titulo" style="font-size:15px; margin-bottom:8px;">Demo</div>
+      <div class="card-texto" style="font-size:12px; color:rgba(255,255,255,0.8);">
+        Aplicacion funcional con datos simulados. Demostracion de todos los flujos al cliente. Validacion de funcionalidades.
+      </div>
+      <div style="margin-top:12px;"><span class="badge" style="background:rgba(255,255,255,0.2); color:white;">Actual</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Etapa 2</div>
+      <div class="card-titulo" style="font-size:15px; margin-bottom:8px;">Backend + Admin</div>
+      <div class="card-texto" style="font-size:12px;">
+        Conexion a base de datos real. Panel de administracion para operadores municipales. Notificaciones push reales.
+      </div>
+      <div style="margin-top:12px;"><span class="badge badge-amarillo">Siguiente</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Etapa 3</div>
+      <div class="card-titulo" style="font-size:15px; margin-bottom:8px;">Lanzamiento</div>
+      <div class="card-texto" style="font-size:12px;">
+        Deploy en servidor municipal. Dominio oficial. Capacitacion al equipo. Publicacion para todos los vecinos.
+      </div>
+      <div style="margin-top:12px;"><span class="badge badge-rojo">Futuro</span></div>
+    </div>
+  </div>
+
+  <div class="titulo-seccion" style="font-size:18px; margin-bottom:14px;">Lo que viene en la Etapa 2</div>
+
+  <div class="lista-item">
+    <div class="lista-punto" style="background: linear-gradient(135deg, #16a34a, #22c55e);">&#10003;</div>
+    <div>
+      <div class="lista-contenido-titulo">Panel de administracion municipal</div>
+      <div class="lista-contenido-texto">Los operadores podran ver todos los reportes en un mapa, cambiar estados y asignar tareas al personal de mantenimiento.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto" style="background: linear-gradient(135deg, #16a34a, #22c55e);">&#10003;</div>
+    <div>
+      <div class="lista-contenido-titulo">Notificaciones push reales</div>
+      <div class="lista-contenido-texto">El municipio podra enviar avisos a todos los vecinos o a zonas especificas directamente desde el panel.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto" style="background: linear-gradient(135deg, #16a34a, #22c55e);">&#10003;</div>
+    <div>
+      <div class="lista-contenido-titulo">Alertas SOS en tiempo real</div>
+      <div class="lista-contenido-texto">El boton de panico disparara una notificacion instantanea al equipo de emergencias con la ubicacion exacta del vecino.</div>
+    </div>
+  </div>
+  <div class="lista-item">
+    <div class="lista-punto" style="background: linear-gradient(135deg, #16a34a, #22c55e);">&#10003;</div>
+    <div>
+      <div class="lista-contenido-titulo">Estadisticas y reportes</div>
+      <div class="lista-contenido-texto">Datos de uso anonimizados para que el municipio identifique los problemas mas frecuentes por zona.</div>
+    </div>
+  </div>
+
+  <div class="footer-pagina">
+    <span>Municipio de Pocito &mdash; App Vecinal</span>
+    <span>Demo &mdash; Abril 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGINA 7 - CIERRE                                            -->
+<!-- ============================================================ -->
+<div class="pagina pagina-cierre">
+  <div class="portada-orbe1"></div>
+  <div class="portada-orbe2"></div>
+
+  <div class="portada-linea" style="margin: 0 auto 24px;"></div>
+  <div class="cierre-titulo">Un municipio<br>mas conectado</div>
+  <p class="cierre-texto">
+    Pocito App Vecinal es el primer paso hacia una gestion municipal digital,
+    transparente y cercana a cada vecino del departamento.
+  </p>
+
+  <div class="cierre-contacto">
+    <strong>Informacion de contacto</strong>
+    Desarrollo: thomivargas<br>
+    Correo: thvargas23@gmail.com<br>
+    Fecha de presentacion: Abril 2026
+  </div>
+
+  <div style="margin-top: 32px;">
+    <span class="tag-demo">Demo v1.0</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -50,7 +50,10 @@
       "Bash(python3 -c ' *)",
       "Bash(powershell -Command '\\(Get-Content '\\\\''C:/Users/thvar/Desktop/sisem/client/sisem-client/public/icons/icon-192.png'\\\\'' -AsByteStream | Select-Object -First 4 | ForEach-Object { '\\\\''{0:X2}'\\\\'' -f $_ }\\) -join '\\\\'' '\\\\''')",
       "Bash(curl -s http://localhost:5173)",
-      "Bash(git submodule *)"
+      "Bash(git submodule *)",
+      "Bash(git ls-tree *)",
+      "Bash(git rm *)",
+      "Bash(git push *)"
     ]
   }
 }
