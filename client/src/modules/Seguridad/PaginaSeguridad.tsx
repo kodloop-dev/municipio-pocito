@@ -1,4 +1,4 @@
-import { Shield, Info, AlertCircle, MapPin, ShieldCheck } from 'lucide-react'
+import { Info, AlertCircle, MapPin, ShieldCheck } from 'lucide-react'
 import { BotonPanico } from './BotonPanico'
 import { useContextoApp } from '../../context/ContextoApp'
 

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { LogOut, User, Mail, Phone, CreditCard } from 'lucide-react'
+import { LogOut, Mail, Phone, CreditCard } from 'lucide-react'
 import { useContextoApp } from '../../context/ContextoApp'
 
 export default function PaginaCuenta() {
