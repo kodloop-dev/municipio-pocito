@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { apiSimulada } from '../../services/apiSimulada'
+import { useContextoApp } from '../../context/ContextoApp'
 import type { Coordenadas } from '../../context/tipos'
 
 export function useSeguridad() {
+  const { actualizarNotificaciones } = useContextoApp()
   const [enviando, setEnviando] = useState(false)
   const [alertaEnviada, setAlertaEnviada] = useState(false)
 
@@ -10,6 +12,8 @@ export function useSeguridad() {
     setEnviando(true)
     try {
       await apiSimulada.enviarAlerta(coordenadas)
+      const notificaciones = await apiSimulada.obtenerNotificaciones()
+      actualizarNotificaciones(notificaciones)
       setAlertaEnviada(true)
     } finally {
       setEnviando(false)

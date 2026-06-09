@@ -59,8 +59,18 @@ export const apiSimulada = {
     localStorage.setItem(CLAVE_NOTIFICACIONES, JSON.stringify(actualizada))
   },
 
-  async enviarAlerta(coordenadas: Coordenadas): Promise<void> {
+  async enviarAlerta(coordenadas: Coordenadas): Promise<Notificacion> {
     console.info('Alerta enviada con coordenadas:', coordenadas)
+    const nueva: Notificacion = {
+      id: crypto.randomUUID(),
+      titulo: 'Alerta de pánico activada',
+      mensaje: `Se envió una alerta de emergencia con su ubicación (${coordenadas.lat.toFixed(4)}, ${coordenadas.lng.toFixed(4)}).`,
+      leida: false,
+      fecha: new Date().toISOString(),
+    }
+    const lista = await this.obtenerNotificaciones()
+    localStorage.setItem(CLAVE_NOTIFICACIONES, JSON.stringify([nueva, ...lista]))
+    return nueva
   },
 
   async obtenerReportes(): Promise<Reporte[]> {
@@ -68,7 +78,7 @@ export const apiSimulada = {
     return datos ? (JSON.parse(datos) as Reporte[]) : []
   },
 
-  async guardarReporte(datos: Pick<Reporte, 'categoria' | 'descripcion' | 'coordenadas'>): Promise<Reporte> {
+  async guardarReporte(datos: Pick<Reporte, 'categoria' | 'descripcion' | 'coordenadas'> & { foto?: string }): Promise<Reporte> {
     const lista = await this.obtenerReportes()
     const nuevo: Reporte = {
       id: crypto.randomUUID(),
