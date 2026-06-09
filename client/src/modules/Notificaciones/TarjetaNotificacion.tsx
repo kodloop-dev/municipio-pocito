@@ -25,17 +25,17 @@ export function TarjetaNotificacion({ notificacion, alMarcarLeida }: Props) {
       className={`w-full flex gap-3 items-start p-4 rounded-2xl text-left transition-all active:scale-[0.99] ${
         notificacion.leida
           ? 'bg-white border border-gray-100'
-          : 'bg-white border border-[#0077C8]/12'
+          : 'bg-white border border-[#1A18D2]/12'
       }`}
       style={
         notificacion.leida
           ? { boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }
-          : { boxShadow: '0 2px 14px rgba(0,119,200,0.10)' }
+          : { boxShadow: '0 2px 14px rgba(26,24,210,0.10)' }
       }
     >
       <div
         className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-          notificacion.leida ? 'bg-gray-100' : 'bg-[#0077C8]'
+          notificacion.leida ? 'bg-gray-100' : 'bg-[#1A18D2]'
         }`}
       >
         <Bell size={15} className={notificacion.leida ? 'text-gray-400' : 'text-white'} />

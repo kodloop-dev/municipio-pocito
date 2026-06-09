@@ -88,7 +88,7 @@ export function BotonPanico() {
               Cerrar
             </Button>
             <Button
-              className="bg-[#0077C8] hover:bg-[#27A9E1]"
+              className="bg-[#1A18D2] hover:bg-[#3F45DF]"
               onClick={() => { setModalAbierto(false); navigate('/mis-datos') }}
             >
               Ir a Mis Datos

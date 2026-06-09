@@ -40,7 +40,7 @@ export default function PaginaSeguridad() {
           </div>
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-              <MapPin size={14} className="text-[#0077C8]" />
+              <MapPin size={14} className="text-[#1A18D2]" />
             </div>
             <div>
               <p className="text-[13px] font-semibold text-[#1A1A2E]">Ubicación automática</p>

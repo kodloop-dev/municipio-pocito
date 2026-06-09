@@ -13,9 +13,9 @@ function ItemNav({ to, icono: Icono, label, badge }: {
       {({ isActive }) => (
         <>
           {isActive && (
-            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-[#0077C8]" />
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-[3px] rounded-full bg-[#1A18D2]" />
           )}
-          <div className={`relative transition-colors ${isActive ? 'text-[#0077C8]' : 'text-gray-400'}`}>
+          <div className={`relative transition-colors ${isActive ? 'text-[#1A18D2]' : 'text-gray-400'}`}>
             <Icono size={20} strokeWidth={isActive ? 2.2 : 1.8} />
             {badge !== undefined && badge > 0 && (
               <span className="absolute -top-1 -right-1.5 min-w-[15px] h-[15px] bg-[#F5A623] rounded-full text-[8px] font-black text-white flex items-center justify-center px-0.5">
@@ -23,7 +23,7 @@ function ItemNav({ to, icono: Icono, label, badge }: {
               </span>
             )}
           </div>
-          <span className={`text-[9px] font-bold transition-colors ${isActive ? 'text-[#0077C8]' : 'text-gray-400'}`}>
+          <span className={`text-[9px] font-bold transition-colors ${isActive ? 'text-[#1A18D2]' : 'text-gray-400'}`}>
             {label}
           </span>
         </>

@@ -55,7 +55,7 @@ export default function PaginaInicio() {
       {/* Hero */}
       <div
         className="-mx-4 -mt-4 px-5 pt-6 pb-7 rounded-b-[32px] relative overflow-hidden"
-        style={{ background: 'linear-gradient(180deg, #003f87 0%, #0077C8 60%, #27A9E1 100%)' }}
+        style={{ background: 'linear-gradient(180deg, #0A0AA0 0%, #1A18D2 60%, #3F45DF 100%)' }}
       >
         <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none" style={{ background: 'rgba(255,255,255,0.06)' }} />
         <div className="absolute top-8 -right-4 w-20 h-20 rounded-full pointer-events-none" style={{ background: 'rgba(255,255,255,0.04)' }} />
@@ -147,7 +147,7 @@ export default function PaginaInicio() {
             style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}
           >
             <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 relative">
-              <Bell size={18} className="text-[#0077C8]" />
+              <Bell size={18} className="text-[#1A18D2]" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#F5A623] rounded-full" />
             </div>
             <div className="flex-1 min-w-0">
@@ -181,7 +181,7 @@ export default function PaginaInicio() {
             style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.05)' }}
           >
             <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-              <User size={18} className="text-[#0077C8]" />
+              <User size={18} className="text-[#1A18D2]" />
             </div>
             <div>
               <p className="text-[13px] font-bold text-[#1A1A2E]">Mis Datos</p>

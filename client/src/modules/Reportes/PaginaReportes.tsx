@@ -42,7 +42,7 @@ function ListaReportes({ onNuevo }: { onNuevo: () => void }) {
         <button
           onClick={onNuevo}
           className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-white text-[13px] font-bold active:scale-[0.97] transition-all"
-          style={{ background: 'linear-gradient(135deg, #0077C8 0%, #27A9E1 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #1A18D2 0%, #3F45DF 100%)' }}
         >
           <Plus size={15} />
           Nuevo
@@ -67,7 +67,7 @@ function ListaReportes({ onNuevo }: { onNuevo: () => void }) {
           <button
             onClick={onNuevo}
             className="mt-2 px-5 py-2.5 rounded-xl text-white text-[13px] font-bold"
-            style={{ background: 'linear-gradient(135deg, #0077C8 0%, #27A9E1 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #1A18D2 0%, #3F45DF 100%)' }}
           >
             Hacer primer reporte
           </button>
@@ -158,14 +158,14 @@ function FormularioReporte({ onVolver, onEnviado }: { onVolver: () => void; onEn
               onClick={() => setCategoria(c.id)}
               className={`flex flex-col items-center gap-1.5 py-3 rounded-xl border-2 transition-all active:scale-[0.97] ${
                 categoria === c.id
-                  ? 'border-[#0077C8] bg-blue-50'
+                  ? 'border-[#1A18D2] bg-blue-50'
                   : 'border-gray-100 bg-gray-50'
               }`}
             >
               <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${categoria === c.id ? 'bg-blue-100' : c.bg}`}>
-                <c.icono size={18} className={categoria === c.id ? 'text-[#0077C8]' : c.color} />
+                <c.icono size={18} className={categoria === c.id ? 'text-[#1A18D2]' : c.color} />
               </div>
-              <span className={`text-[11px] font-bold ${categoria === c.id ? 'text-[#0077C8]' : 'text-gray-500'}`}>
+              <span className={`text-[11px] font-bold ${categoria === c.id ? 'text-[#1A18D2]' : 'text-gray-500'}`}>
                 {c.label}
               </span>
             </button>
@@ -184,7 +184,7 @@ function FormularioReporte({ onVolver, onEnviado }: { onVolver: () => void; onEn
           onChange={e => setDescripcion(e.target.value)}
           placeholder="Describí el problema con el mayor detalle posible..."
           rows={4}
-          className="w-full text-[14px] text-[#1A1A2E] bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 resize-none focus:outline-none focus:border-[#0077C8] focus:bg-white transition-colors placeholder:text-gray-400"
+          className="w-full text-[14px] text-[#1A1A2E] bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 resize-none focus:outline-none focus:border-[#1A18D2] focus:bg-white transition-colors placeholder:text-gray-400"
         />
         <p className="text-[11px] text-gray-400 text-right">{descripcion.length}/500</p>
       </div>
@@ -195,7 +195,7 @@ function FormularioReporte({ onVolver, onEnviado }: { onVolver: () => void; onEn
         style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}
       >
         <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-          <MapPin size={16} className="text-[#0077C8]" />
+          <MapPin size={16} className="text-[#1A18D2]" />
         </div>
         <div>
           <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Ubicación</p>
@@ -212,8 +212,8 @@ function FormularioReporte({ onVolver, onEnviado }: { onVolver: () => void; onEn
         disabled={enviando}
         className="w-full h-14 rounded-2xl text-white text-[15px] font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-all disabled:opacity-60"
         style={{
-          background: 'linear-gradient(135deg, #0077C8 0%, #27A9E1 100%)',
-          boxShadow: '0 6px 24px rgba(0,119,200,0.30)',
+          background: 'linear-gradient(135deg, #1A18D2 0%, #3F45DF 100%)',
+          boxShadow: '0 6px 24px rgba(26,24,210,0.30)',
         }}
       >
         <Send size={17} />

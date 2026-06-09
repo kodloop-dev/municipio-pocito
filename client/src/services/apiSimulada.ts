@@ -7,7 +7,7 @@ const CLAVE_REPORTES = 'pocito_reportes'
 const notificacionesEjemplo: Notificacion[] = [
   {
     id: '1',
-    titulo: 'Bienvenido/a a Pocito Municipio',
+    titulo: 'Bienvenido/a a Santa Lucia Municipio',
     mensaje: 'Gracias por registrarte. Completá tu perfil para usar el botón de pánico.',
     leida: false,
     fecha: new Date().toISOString(),

@@ -32,7 +32,7 @@ export default function PaginaCuenta() {
       >
         <div
           className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 text-white text-[18px] font-black"
-          style={{ background: 'linear-gradient(135deg, #003f87 0%, #0077C8 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #0A0AA0 0%, #1A18D2 100%)' }}
         >
           {iniciales}
         </div>
@@ -58,7 +58,7 @@ export default function PaginaCuenta() {
         ].map(({ icono: Icono, valor, label }) => (
           <div key={label} className="flex items-center gap-3 px-4 py-3 border-t border-gray-50">
             <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-              <Icono size={14} className="text-[#0077C8]" />
+              <Icono size={14} className="text-[#1A18D2]" />
             </div>
             <div className="min-w-0">
               <p className="text-[11px] text-gray-400">{label}</p>

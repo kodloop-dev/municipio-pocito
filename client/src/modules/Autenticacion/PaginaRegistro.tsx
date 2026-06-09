@@ -242,8 +242,8 @@ export default function PaginaRegistro() {
             disabled={formulario.formState.isSubmitting}
             className="mt-2 w-full h-14 rounded-2xl text-white text-[15px] font-bold tracking-wide active:scale-[0.98] transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
             style={{
-              background: 'linear-gradient(135deg, #0077C8 0%, #27A9E1 100%)',
-              boxShadow: '0 6px 24px rgba(0, 119, 200, 0.30)',
+              background: 'linear-gradient(135deg, #1A18D2 0%, #3F45DF 100%)',
+              boxShadow: '0 6px 24px rgba(26, 24, 210, 0.30)',
             }}
           >
             {formulario.formState.isSubmitting ? 'Creando cuenta...' : 'Registrarse'}
@@ -260,7 +260,7 @@ export default function PaginaRegistro() {
       <button
         type="button"
         onClick={() => navigate('/login')}
-        className="-mt-2 w-full h-12 rounded-2xl text-[#0077C8] text-[14px] font-bold border border-[#0077C8]/25 bg-blue-50/70 hover:bg-blue-50 active:scale-[0.98] transition-all duration-150"
+        className="-mt-2 w-full h-12 rounded-2xl text-[#1A18D2] text-[14px] font-bold border border-[#1A18D2]/25 bg-blue-50/70 hover:bg-blue-50 active:scale-[0.98] transition-all duration-150"
       >
         Iniciar sesión
       </button>

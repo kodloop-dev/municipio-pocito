@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom'
-import logoPocito from '../assets/logo-municipio-pocito.jpeg'
+import logoPocito from '../assets/remixed-de26b819.svg'
 
 export default function DiseñoAutenticacion() {
   return (
     <div
       className="min-h-screen relative overflow-x-hidden flex flex-col"
-      style={{ background: 'linear-gradient(155deg, #003f87 0%, #0077C8 52%, #27A9E1 100%)' }}
+      style={{ background: 'linear-gradient(155deg, #0A0AA0 0%, #1A18D2 52%, #3F45DF 100%)' }}
     >
       {/* Orbes decorativos */}
       <div className="absolute -top-20 -right-16 w-72 h-72 rounded-full pointer-events-none" style={{ background: 'rgba(255,255,255,0.06)' }} />
@@ -22,10 +22,10 @@ export default function DiseñoAutenticacion() {
         </div>
         <div className="text-center">
           <h1 className="text-white text-[30px] font-extrabold tracking-[0.18em] leading-none">
-            POCITO
+            Santa Lucía
           </h1>
           <p className="text-white/60 text-[13px] mt-2 font-medium tracking-widest uppercase">
-            Municipio · App Vecinal
+            Municipalidad · App Vecinal
           </p>
         </div>
       </div>

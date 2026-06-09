@@ -30,7 +30,7 @@ interface Props {
 export function SelectorMapa({ coordenadas, alSeleccionar }: Props) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="h-48 rounded-xl overflow-hidden border-2 border-dashed border-[#27A9E1]" style={{ isolation: 'isolate' }}>
+      <div className="h-48 rounded-xl overflow-hidden border-2 border-dashed border-[#3F45DF]" style={{ isolation: 'isolate' }}>
         <MapContainer
           center={coordenadas ? [coordenadas.lat, coordenadas.lng] : CENTRO_POCITO}
           zoom={14}
@@ -54,7 +54,7 @@ export function SelectorMapa({ coordenadas, alSeleccionar }: Props) {
             href={`https://www.google.com/maps?q=${coordenadas.lat},${coordenadas.lng}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#0077C8] font-bold underline underline-offset-2"
+            className="text-xs text-[#1A18D2] font-bold underline underline-offset-2"
           >
             Abrir en Google Maps ↗
           </a>

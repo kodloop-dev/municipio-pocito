@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1034 1034" width="1034" height="1034">
+  <defs>
+    <radialGradient id="blue" cx="0.80" cy="0.22" r="0.95">
+      <stop offset="0" stop-color="#9298EE"/>
+      <stop offset="0.20" stop-color="#3F45DF"/>
+      <stop offset="0.48" stop-color="#1A18D2"/>
+      <stop offset="0.75" stop-color="#0D0CBC"/>
+      <stop offset="1" stop-color="#0A0AA0"/>
+    </radialGradient>
+    <clipPath id="circ"><circle cx="517" cy="517" r="511"/></clipPath>
+  </defs>
+  <g clip-path="url(#circ)">
+    <!-- pale yellow base -->
+    <rect x="0" y="0" width="1034" height="1034" fill="#FCD882"/>
+    <!-- gold sun rays -->
+    <g fill="#FBC42B">
+      <polygon points="792.0,-70.0 429.1,1385.4 340.2,1360.3"/>
+      <polygon points="792.0,-70.0 259.6,1332.3 174.3,1296.9"/>
+      <polygon points="792.0,-70.0 97.5,1259.6 17.0,1214.3"/>
+      <polygon points="792.0,-70.0 -54.8,1168.1 -129.4,1113.6"/>
+      <polygon points="792.0,-70.0 -195.2,1059.3 -262.9,996.4"/>
+      <polygon points="792.0,-70.0 -321.8,934.7 -381.6,864.2"/>
+      <polygon points="792.0,-70.0 -432.8,796.0 -483.8,718.9"/>
+      <polygon points="792.0,-70.0 -526.6,645.1 -568.1,562.6"/>
+      <polygon points="792.0,-70.0 -601.9,484.2 -633.3,397.4"/>
+      <polygon points="792.0,-70.0 -657.6,315.6 -678.6,225.6"/>
+      <polygon points="792.0,-70.0 -693.0,141.5 -703.2,49.6"/>
+      <polygon points="792.0,-70.0 -707.6,-35.6 -706.9,-128.0"/>
+      <polygon points="792.0,-70.0 -701.2,-213.1 -689.5,-304.8"/>
+      <polygon points="792.0,-70.0 -673.8,-388.6 -651.4,-478.3"/>
+      <polygon points="792.0,-70.0 -625.8,-559.7 -593.0,-646.0"/>
+      <polygon points="792.0,-70.0 -558.0,-723.8 -515.2,-805.7"/>
+      <polygon points="792.0,-70.0 -471.2,-878.9 -419.0,-955.1"/>
+      <polygon points="792.0,-70.0 -366.8,-1022.5 -305.9,-1092.1"/>
+      <polygon points="792.0,-70.0 -246.0,-1152.8 -177.4,-1214.7"/>
+    </g>
+    <!-- red / white / blue swoosh disks -->
+    <circle cx="872" cy="942" r="808" fill="#E8332C"/>
+    <circle cx="872" cy="942" r="776" fill="#FFFFFF"/>
+    <circle cx="872" cy="942" r="752" fill="url(#blue)"/>
+  </g>
+  <!-- text -->
+  <g fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="628" y="510" font-size="74" font-weight="700">Ciudad de</text>
+    <text x="636" y="612" font-size="118" font-weight="800" letter-spacing="1">Santa Lucía</text>
+    <text x="618" y="690" font-size="62" font-weight="700">Municipalidad</text>
+  </g>
+</svg>

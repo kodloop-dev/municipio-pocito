@@ -211,8 +211,8 @@ export default function PaginaMisDatos() {
             disabled={formulario.formState.isSubmitting}
             className="w-full h-14 rounded-2xl text-white text-[15px] font-bold tracking-wide active:scale-[0.98] transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
             style={{
-              background: 'linear-gradient(135deg, #0077C8 0%, #27A9E1 100%)',
-              boxShadow: '0 6px 24px rgba(0, 119, 200, 0.30)',
+              background: 'linear-gradient(135deg, #1A18D2 0%, #3F45DF 100%)',
+              boxShadow: '0 6px 24px rgba(26, 24, 210, 0.30)',
             }}
           >
             {formulario.formState.isSubmitting ? 'Guardando...' : 'Guardar cambios'}
